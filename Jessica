@@ -1,0 +1,15 @@
+local WindUI = loadstring(game:HttpGet("https://github.com/wsomoqaz/CX/releases/latest/download/main.lua"))()
+
+local Window = WindUI:CreateWindow({
+    Title = "卡卡脚本",
+    Icon = "door-open",
+    Author = "99夜",
+    Folder = "MyTestHub",
+})
+
+local Tab = Window:Tab({
+    Title = "玩家",
+    Icon = "bird",
+    Locked = false,
+})
+
