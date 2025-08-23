@@ -13,3 +13,27 @@ local Tab = Window:Tab({
     Locked = false,
 })
 
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local speedValue = 16 
+
+local Input = Tab:Input({
+    Title = "移动速度",
+    Desc = "输入一个数字修改速度",
+    Value = tostring(speedValue),
+    InputIcon = "zap",
+    Type = "Input",
+    Placeholder = "例如: 50",
+    Callback = function(input)
+        local number = tonumber(input) 
+        if number then
+            speedValue = number
+            if LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid") then
+                LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = speedValue
+            end
+            print("玩家速度已设置为: " .. speedValue)
+        else
+            warn("请输入有效的数字！")
+        end
+    end
+})
